@@ -82,9 +82,9 @@ def preprocess_scraped_text(textcol):
     return texts
 
 def scrape_web_main(path):
-    #urls = pd.read_csv(path)
-    #scraped_data = urls.apply(scrape_web, axis=1).values
-    #text = pd.DataFrame.from_records(scraped_data, columns = ['domain_name', 'text', 'url'])
+    urls = pd.read_csv(path)
+    scraped_data = urls.apply(scrape_web, axis=1).values
+    text = pd.DataFrame.from_records(scraped_data, columns = ['domain_name', 'text', 'url'])
     text = pd.read_csv('data\\text_raw.csv')
     text.text = text.text.fillna('')
     text.text = preprocess_scraped_text(text.text)
